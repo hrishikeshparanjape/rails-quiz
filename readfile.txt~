@@ -1,0 +1,4 @@
+Steps done.
+1. Followed the tutorial for "blog post" and created two tables in the databases - Question and Choice.
+2. Used the web services created by Rails to get the data from the database. On the client side simply performed pure javascript ajax call on the web service created by Rails.
+3. Dynamically displayed questions and choices using JavaScript.

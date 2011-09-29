@@ -1,0 +1,8 @@
+Homework 2
+Hrishikesh Paranjape
+
+Steps done:
+1. Followed the tutorial for "blog post" and created two tables Question and Choice in the default database.
+2. Entered data into database tables (ideally should be done by reading csv files using some scripts..well I tried that but failed)
+3. Used the web services created by Rails to get the data from the database. On the client side simply performed pure javascript ajax call on the web service created by Rails.
+4. Dynamically displayed questions and choices using JavaScript.
