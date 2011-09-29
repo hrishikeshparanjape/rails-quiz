@@ -1,0 +1,63 @@
+<html>
+<head>
+
+<script type="application/javascript">
+var questions, choices, answers;
+	function checkValue(t){
+		answers[parseInt(t.name)-1]=t.value;
+	}
+	function checkQuiz(){
+		var score=0;
+		for(var i=0;i<questions.length;i++){
+			if(questions[i].answerId==answers[i])
+				score=score+1;
+		}
+		window.location.reload();
+		alert("Congratulations...Your score is "+score+" out of "+questions.length);
+	}
+	function loadDatabase(){
+		var questionRequest = (window.XMLHttpRequest) ? new XMLHttpRequest() :new ActiveXObject("Msxml2.XMLHTTP");	
+		var choiceRequest = (window.XMLHttpRequest) ? new XMLHttpRequest() :new ActiveXObject("Msxml2.XMLHTTP");
+		questionRequest.open("GET", "http://localhost:3000/questions.json", true);
+		questionRequest.send();
+		questionRequest.onreadystatechange = function(){
+			if(questionRequest.readyState == 4 && questionRequest.status == 200)
+			{
+				var json = eval(questionRequest.responseText);
+				questions=json;
+				choiceRequest.open("GET", "http://localhost:3000/choices.json", true);
+				choiceRequest.send();
+			}
+		};
+		choiceRequest.onreadystatechange = function(){
+			if(choiceRequest.readyState == 4 && choiceRequest.status == 200)
+			{
+				var json = eval(choiceRequest.responseText);
+				choices=json;
+				console.log(questions);
+				console.log(choices);
+				answers=new Array();
+				//This is where we get all the questions and choices
+				for(var i=0;i<questions.length;i++){
+					document.write('<h1>'+(i+1).toString() +'. '+questions[i].Text+'<BR/></h1>');
+					for(var j=0;j<choices.length;j++){
+						if(choices[j].QuestionId==questions[i].qId){
+							//document.write('<h2>'+choices[j].Text+'<BR/></h2>');
+							document.write('<h2><input type="radio" name="'+questions[i].qId +'" value="'+choices[j].cId+'" onclick="checkValue(this)"/>'+choices[j].Text+'<br /></h2>');
+						}
+					}
+				}
+				document.write('<h2><input type="button" value="submit" onclick="checkQuiz()" /></h2>');
+				
+			}
+		};	
+}	
+</script>
+</head>
+<body>
+	<h1>Quiz</h1>
+<button type="button" onclick="loadDatabase()">Take a quiz</button>
+<%= link_to "Questions", questions_path %>
+<%= link_to "Choices", choices_path %>	
+</body>
+</html>

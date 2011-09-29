@@ -1,0 +1,27 @@
+<h1>Listing choices</h1>
+
+<table>
+  <tr>
+    <th>Cid</th>
+    <th>Text</th>
+    <th>Questionid</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @choices.each do |choice| %>
+  <tr>
+    <td><%= choice.cId %></td>
+    <td><%= choice.Text %></td>
+    <td><%= choice.QuestionId %></td>
+    <td><%= link_to 'Show', choice %></td>
+    <td><%= link_to 'Edit', edit_choice_path(choice) %></td>
+    <td><%= link_to 'Destroy', choice, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Choice', new_choice_path %>

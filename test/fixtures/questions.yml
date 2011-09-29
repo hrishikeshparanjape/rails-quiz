@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  qId: MyString
+  Text: MyString
+  answerId: MyString
+
+two:
+  qId: MyString
+  Text: MyString
+  answerId: MyString
