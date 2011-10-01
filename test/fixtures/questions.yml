@@ -3,9 +3,9 @@
 one:
   qId: MyString
   Text: MyString
-  answerId: MyString
+  AnswerId: MyString
 
 two:
   qId: MyString
   Text: MyString
-  answerId: MyString
+  AnswerId: MyString

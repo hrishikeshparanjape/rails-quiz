@@ -4,12 +4,14 @@
 <script type="application/javascript">
 var questions, choices, answers;
 	function checkValue(t){
+		//alert(t.name);
 		answers[parseInt(t.name)-1]=t.value;
 	}
 	function checkQuiz(){
 		var score=0;
+		//alert(questions[0].answerId);
 		for(var i=0;i<questions.length;i++){
-			if(questions[i].answerId==answers[i])
+			if(questions[i].AnswerId==answers[i])
 				score=score+1;
 		}
 		window.location.reload();

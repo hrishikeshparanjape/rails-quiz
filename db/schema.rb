@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928203759) do
+ActiveRecord::Schema.define(:version => 20111001044323) do
 
   create_table "choices", :force => true do |t|
     t.string   "cId"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20110928203759) do
   create_table "questions", :force => true do |t|
     t.string   "qId"
     t.string   "Text"
-    t.string   "answerId"
+    t.string   "AnswerId"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
